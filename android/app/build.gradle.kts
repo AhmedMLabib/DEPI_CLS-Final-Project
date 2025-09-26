@@ -8,7 +8,8 @@ plugins {
 android {
     namespace = "com.example.sharek"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    // Force NDK 27 since flutter_native_splash requires it
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
