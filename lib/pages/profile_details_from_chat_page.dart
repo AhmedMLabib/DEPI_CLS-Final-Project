@@ -4,8 +4,6 @@ import 'package:sharek/Colors/Colors.dart';
 
 class ProfileDetailsFromChat extends StatelessWidget {
   ProfileDetailsFromChat({super.key});
-
-  // reactive values using GetX
   final RxBool notificationVal = true.obs;
   final RxBool pinChatVal = false.obs;
 
@@ -15,74 +13,64 @@ class ProfileDetailsFromChat extends StatelessWidget {
     final String name = args[0];
     final Widget profilePic = args[1];
 
-    return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Column(
-                children: [
-                  profilePic,
-                  Text(
-                    name,
-                    style: const TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(),
+        body: Column(
+          children: [
+            Column(
+              children: [
+                profilePic,
+                Text(
+                  name,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(height: 32),
-          // mute notifications
-          Obx(
-            () => settingsTile(
-              icon: Icons.notifications,
-              text: "Mute notification",
-              trailing: Switch(
-                value: notificationVal.value,
-                onChanged: (v) => notificationVal.value = v,
-                activeColor: Colors.white,
-                activeTrackColor: secondaryColor,
-                inactiveThumbColor: Colors.grey.shade400,
-                inactiveTrackColor: Colors.grey.shade300,
-                trackOutlineColor: MaterialStateProperty.all(
-                  Colors.transparent,
+                ),
+              ],
+            ),
+            const SizedBox(height: 32),
+            Obx(
+              () => settingsTile(
+                icon: Icons.notifications,
+                text: "كتم الإشعارات",
+                trailing: Switch(
+                  value: notificationVal.value,
+                  onChanged: (v) => notificationVal.value = v,
                 ),
               ),
             ),
-          ),
-          // pin chat
-          Obx(
-            () => settingsTile(
-              icon: Icons.vertical_align_top,
-              text: "Pin Chat",
-              trailing: Switch(
-                value: pinChatVal.value,
-                onChanged: (v) => pinChatVal.value = v,
-                activeColor: Colors.white,
-                activeTrackColor: secondaryColor,
-                inactiveThumbColor: Colors.grey.shade400,
-                inactiveTrackColor: Colors.grey.shade300,
-                trackOutlineColor: MaterialStateProperty.all(
-                  Colors.transparent,
+            Obx(
+              () => settingsTile(
+                icon: Icons.vertical_align_top,
+                text: "تثبيت المحادثة",
+                trailing: Switch(
+                  value: pinChatVal.value,
+                  onChanged: (v) => pinChatVal.value = v,
                 ),
               ),
             ),
-          ),
-          // block user
-          settingsTile(
-            icon: Icons.report,
-            text: "Block $name",
-            textColor: Colors.red,
-            onTap: () {
-              Get.snackbar("Notification", "$name is blocked");
-            },
-          ),
-        ],
+            settingsTile(
+              icon: Icons.report,
+              text: "حظر $name",
+              textColor: Colors.red,
+              onTap: () {
+                Get.snackbar(
+                  "",
+                  "$name تم حظره",
+                  snackPosition: SnackPosition.TOP,
+                  messageText: Text(
+                    "$name تم حظره",
+                    textDirection: TextDirection.rtl,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -97,22 +85,22 @@ class ProfileDetailsFromChat extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: 100,
-        width: double.infinity,
+        height: 80,
         margin: const EdgeInsets.all(5),
-        padding: const EdgeInsets.all(30),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         decoration: BoxDecoration(
           color: mainColor,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Row(
+          textDirection: TextDirection.rtl,
           children: [
             Icon(icon, color: textColor ?? Colors.white, size: 32),
             const SizedBox(width: 8),
             Text(
               text,
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: textColor ?? Colors.white,
               ),
