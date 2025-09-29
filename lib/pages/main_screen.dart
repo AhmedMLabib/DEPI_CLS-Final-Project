@@ -8,14 +8,14 @@ import 'package:sharek/pages/requests_page.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({super.key});
-  final RxInt _currentIndex = 0.obs;
+  final RxInt _currentIndex = 4.obs;
 
   final pages = [
-    HomePage(),
-    ChatPage(),
-    AddPage(),
     ProfilePage(),
     RequestsPage(),
+    AddPage(),
+    ChatPage(),
+    HomePage(),
   ];
 
   @override
@@ -32,14 +32,14 @@ class MainScreen extends StatelessWidget {
             _currentIndex.value = index;
           },
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
+            BottomNavigationBarItem(icon: Icon(Icons.mail), label: "طلبات"),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: "الحساب"),
             BottomNavigationBarItem(
               icon: Icon(Icons.add_circle_outline),
-              label: "Add",
+              label: "اضافة",
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-            BottomNavigationBarItem(icon: Icon(Icons.mail), label: "Requests"),
+            BottomNavigationBarItem(icon: Icon(Icons.chat), label: "دردشة"),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "الرئيسية"),
           ],
         ),
       ),
