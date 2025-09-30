@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sharek/pages/add_page.dart';
-import 'package:sharek/pages/chat_page.dart';
+import 'package:sharek/pages/home_chat_page.dart';
+
 import 'package:sharek/pages/home_page.dart';
 import 'package:sharek/pages/profile_page.dart';
 import 'package:sharek/pages/requests_page.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({super.key});
+
   final RxInt _currentIndex = 4.obs;
 
   final pages = [
     ProfilePage(),
     RequestsPage(),
     AddPage(),
-    ChatPage(),
+    HomeChatPage(),
     HomePage(),
   ];
 
@@ -32,6 +34,7 @@ class MainScreen extends StatelessWidget {
             _currentIndex.value = index;
           },
           items: const [
+
             BottomNavigationBarItem(icon: Icon(Icons.mail), label: "طلبات"),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "الحساب"),
             BottomNavigationBarItem(

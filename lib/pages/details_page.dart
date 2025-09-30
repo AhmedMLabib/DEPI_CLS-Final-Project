@@ -149,6 +149,7 @@ class DetailsPage extends StatelessWidget {
               ),
             ],
           ),
+
         ),
       ),
     );

@@ -8,8 +8,10 @@ class HomePage extends StatelessWidget {
 
   final address = "الجيزة , مصر";
   final searchController = TextEditingController();
+
   final categories = ['ملابس', 'إلكترونيات', 'كتب', 'طعام', "ألعاب"];
   final mainItems = [
+
     {
       "mainPicture": "assets/images/laptop.jpg",
       "userName": "أحمد علي",
@@ -18,6 +20,7 @@ class HomePage extends StatelessWidget {
       "date": "2025-09-26",
       "location": "القاهرة، مصر",
       "productName": "لاب توب",
+
       "category": "إلكترونيات",
       "description":
           "هذا وصف تفصيلي للاب توب. إنه جهاز قوي ومناسب لجميع احتياجاتك اليومية. يأتي بمعالج سريع وذاكرة كبيرة لتخزين جميع ملفاتك.",
@@ -42,6 +45,7 @@ class HomePage extends StatelessWidget {
       "date": "2025-09-20",
       "location": "الإسكندرية، مصر",
       "productName": "كتاب",
+
       "category": "كتب",
       "description":
           "هذا كتاب شيق يحتوي على معلومات قيمة في مجاله. مناسب لجميع الأعمار ويقدم محتوى مفيد وممتع للقراءة.",
@@ -53,7 +57,7 @@ class HomePage extends StatelessWidget {
       "userProfilePic": "assets/images/profile.png",
       "date": "2025-09-15",
       "location": "الجيزة، مصر",
-      "productName": "تي شيرت",
+
       "category": "ملابس",
       "description":
           "هذا تي شيرت مريح وعصري. مصنوع من قماش عالي الجودة ويوفر راحة طوال اليوم. مناسب لجميع المناسبات.",
@@ -66,6 +70,7 @@ class HomePage extends StatelessWidget {
       "date": "2025-09-10",
       "location": "المنصورة، مصر",
       "productName": "طعام",
+
       "category": "طعام",
       "description":
           "هذا الطعام لذيذ ومغذي. مصنوع من مكونات طازجة وصحية، ويوفر تجربة طعام ممتعة ومشبعة.",
@@ -179,6 +184,7 @@ class HomePage extends StatelessWidget {
               TextField(
                 controller: searchController,
                 textDirection: TextDirection.rtl,
+
                 style: TextStyle(color: Colors.white),
                 cursorColor: Colors.white,
                 decoration: InputDecoration(
@@ -190,6 +196,7 @@ class HomePage extends StatelessWidget {
                   prefixIcon: IconButton(
                     icon: Icon(Icons.search, size: 30, color: Colors.white),
                     onPressed: () {
+
                       final query = searchController.text.toLowerCase();
                       query.isEmpty
                           ? items.value = mainItems
@@ -200,6 +207,7 @@ class HomePage extends StatelessWidget {
                                       .contains(query),
                                 )
                                 .toList();
+
                     },
                   ),
 
@@ -213,14 +221,17 @@ class HomePage extends StatelessWidget {
               // Categories
               GridView.builder(
                 shrinkWrap: true,
+
                 physics: NeverScrollableScrollPhysics(),
                 itemCount: categories.length > 4 ? 4 : categories.length,
+
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 8,
                   mainAxisExtent: 30,
                 ),
+
                 itemBuilder: (context, index) {
                   if (categories.length > 4 && index == 0) {
                     return InkWell(
@@ -272,6 +283,7 @@ class HomePage extends StatelessWidget {
                                                 151,
                                                 110,
                                               ),
+
                                               borderRadius:
                                                   BorderRadius.circular(32),
                                             ),
