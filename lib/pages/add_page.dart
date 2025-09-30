@@ -27,7 +27,7 @@ class _AddPageState extends State<AddPage> {
         leading: IconButton(
           icon: const Icon(Icons.notifications_none_outlined, size: 35),
           onPressed: () {
-            Get.to(() => const NotificationsPage());
+            Get.to(() => NotificationsPage());
           },
         ),
         title: Align(
@@ -170,17 +170,21 @@ class _AddPageState extends State<AddPage> {
                           snackPosition: SnackPosition.TOP,
                           margin: const EdgeInsets.all(12),
                           duration: const Duration(seconds: 3),
+                          backgroundColor: Colors.black87,
+                          colorText: Colors.white,
                           titleText: const Text(
                             "تم إضافة التبرع",
                             textDirection: TextDirection.rtl,
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
+                              color: Colors.white,
                             ),
                           ),
                           messageText: Text(
                             "الاسم: ${nameCont.text}, الفئة: $chosenCategory",
                             textDirection: TextDirection.rtl,
+                            style: const TextStyle(color: Colors.white),
                           ),
                         );
                       },
@@ -203,7 +207,6 @@ class _AddPageState extends State<AddPage> {
             ),
           ),
         ),
-
       ),
     );
   }

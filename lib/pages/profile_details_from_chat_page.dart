@@ -61,10 +61,18 @@ class ProfileDetailsFromChat extends StatelessWidget {
                   "",
                   "$name تم حظره",
                   snackPosition: SnackPosition.TOP,
+                  backgroundColor: Colors.black87,
+                  colorText: Colors.white,
+                  margin: const EdgeInsets.all(12),
+                  duration: const Duration(seconds: 3),
                   messageText: Text(
                     "$name تم حظره",
                     textDirection: TextDirection.rtl,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 );
               },

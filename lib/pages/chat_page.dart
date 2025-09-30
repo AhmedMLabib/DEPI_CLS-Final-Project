@@ -9,7 +9,11 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final args = Get.arguments as Map<String, Object>;
+    final args = Get.arguments;
+    if (args == null || args is! Map<String, Object>) {
+      return const Scaffold(body: Center(child: Text("لا توجد محادثة متاحة")));
+    }
+
     final String name = args["name"] as String;
     final Widget profilePic = args["profilePic"] as Widget;
     final msgCont = TextEditingController();
@@ -23,7 +27,7 @@ class ChatPage extends StatelessWidget {
               profilePic,
               const SizedBox(width: 6),
               InkWell(
-                onTap: () => Get.to(ProfilePage()),
+                onTap: () => Get.to(const ProfilePage()),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -107,7 +111,6 @@ class ChatPage extends StatelessWidget {
             ),
           ],
         ),
-
       ),
     );
   }
