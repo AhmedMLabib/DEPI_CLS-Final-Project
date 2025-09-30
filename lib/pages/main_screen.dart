@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sharek/pages/add_page.dart';
 import 'package:sharek/pages/home_chat_page.dart';
+
 import 'package:sharek/pages/home_page.dart';
 import 'package:sharek/pages/profile_page.dart';
 import 'package:sharek/pages/requests_page.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({super.key});
-  final RxInt _currentIndex = 0.obs;
+
+  final RxInt _currentIndex = 4.obs;
 
   final pages = [
-    HomePage(),
-    HomeChatPage(),
-    AddPage(),
     ProfilePage(),
     RequestsPage(),
+    AddPage(),
+    HomeChatPage(),
+    HomePage(),
   ];
 
   @override
@@ -32,14 +34,15 @@ class MainScreen extends StatelessWidget {
             _currentIndex.value = index;
           },
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
+
+            BottomNavigationBarItem(icon: Icon(Icons.mail), label: "طلبات"),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: "الحساب"),
             BottomNavigationBarItem(
               icon: Icon(Icons.add_circle_outline),
-              label: "Add",
+              label: "اضافة",
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-            BottomNavigationBarItem(icon: Icon(Icons.mail), label: "Requests"),
+            BottomNavigationBarItem(icon: Icon(Icons.chat), label: "دردشة"),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "الرئيسية"),
           ],
         ),
       ),

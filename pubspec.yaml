@@ -37,6 +37,7 @@ dependencies:
   get: ^4.7.2
   dartx: ^1.2.0
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
